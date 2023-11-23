@@ -36,15 +36,18 @@ def get_path():
         else:
             return path
     else:
-        print('Invalid path. The destination path must me a file or folder.')
+        print('Invalid path.')
 
 
 def do_renaming(path):
-    for obj in os.listdir(path):
-        obj_split = re.split(r'[,.+|\s\\%$*_#@~-]+', obj)
-        new_obj_name = '-'.join(obj_split).lower()
-        os.rename(os.path.join(path, obj), os.path.join(path, new_obj_name))
-    print('Files/folders renamed.')
+    try:
+        for obj in os.listdir(path):
+            obj_split = re.split(r'[,.+|\s\\%$*_#@~-]+', obj)
+            new_obj_name = '-'.join(obj_split)
+            os.rename(os.path.join(path, obj), os.path.join(path, new_obj_name.lower()))
+        print('Files/folders renamed.')
+    except NotADirectoryError:
+        print('Path provided must point to a directory.')
 
 
 if __name__ == '__main__':
