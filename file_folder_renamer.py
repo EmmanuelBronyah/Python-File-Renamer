@@ -6,7 +6,7 @@ def main():
     """
     Executes the entire program.
 
-    :return: None.
+    :return: Returns None.
     """
     right_path = True
     while right_path:
@@ -20,6 +20,11 @@ def main():
 
 
 def get_path():
+    """
+    Takes the path of where the files or folders to rename resides.
+
+    :return: Returns the path if it is valid and returns -1 to exit.
+    """
     user_folders = ['Desktop', 'Documents', 'Downloads', 'Music', 'Pictures', 'Videos']
 
     path = input(r'Enter the path to the directory where the files/folders you want to rename reside: ') or 'exit'
@@ -40,6 +45,13 @@ def get_path():
 
 
 def do_renaming(path):
+    """
+    Takes the path as an argument and renames the files and folders within it.
+
+    If the path points to a file, an error message is thrown.
+    :param path: A path to the folder where the files and folders to be renamed exists.
+    :return: Returns None.
+    """
     try:
         for obj in os.listdir(path):
             obj_split = re.split(r'[,.+|\s\\%$*_#@~-]+', obj)
