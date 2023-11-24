@@ -45,7 +45,7 @@ Files/folders renamed.
 C:\Users\{User}\\file-folder-renamer\> python file_renamer_cli.py C:\Users\{User}\Desktop\Renamer\commands.txt
 Path provided must point to a directory.
 ```
-3. **Providing an invalid.**
+3. **Providing an invalid path.**
 ```shell
 C:\Users\{User}\\file-folder-renamer\> python file_renamer_cli.py ewkjfwej
 Invalid path.
